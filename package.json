@@ -42,7 +42,11 @@
 	},
 	"type": "module",
 	"dependencies": {
+		"bits-ui": "^0.21.13",
+		"clsx": "^2.1.1",
 		"sst": "3.1.11",
-		"svelte-kit-sst": "2.43.5"
+		"svelte-kit-sst": "2.43.5",
+		"tailwind-merge": "^2.5.2",
+		"tailwind-variants": "^0.2.1"
 	}
 }
