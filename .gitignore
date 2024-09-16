@@ -22,3 +22,8 @@ vite.config.ts.timestamp-*
 
 # sst
 .sst
+ 
+# notes/scratch
+notes.md
+scratch.md
+scratch.ts
