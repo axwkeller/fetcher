@@ -11,9 +11,9 @@
 		"lint": "prettier --check . && eslint .",
 		"preview": "vite preview",
 		"test": "npm run test:integration && npm run test:unit",
-		"test:integration": "playwright test",
-		"test:integration:ui": "playwright test --ui",
-		"test:unit": "vitest",
+		"test:integration": "NODE_ENV=test playwright test",
+		"test:integration:ui": "NODE_ENV=test playwright test --ui",
+		"test:unit": "NODE_ENV=test vitest",
 		"sso": "aws sso login --sso-session=axwfetcher",
 		"sst-dev": "pnpm exec sst dev --stage dev"
 	},
