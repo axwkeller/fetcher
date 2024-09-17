@@ -18,6 +18,18 @@ export default class Api {
 		});
 	}
 
+	static async searchDogs() {
+		return this.fetch('/dogs/search', {
+			method: 'GET'
+		});
+	}
+
+	static async getDogs(ids: string[]) {
+		return this.fetch('/dogs', {
+			method: 'POST',
+			body: JSON.stringify(ids)
+		});
+	}
 	private static async fetch(endpoint: string, options: RequestInit = {}) {
 		const url = `${this.baseUrl}${endpoint}`;
 		const headers: Record<string, string> = {
