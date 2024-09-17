@@ -3,10 +3,7 @@ import test, { expect } from '@playwright/test';
 test('User signs in', async ({ page }) => {
 	await page.route('*/**/auth/login', async (route) => {
 		await route.fulfill({
-			status: 200,
-			headers: {
-				'Set-Cookie': 'session=mockSessionId; Path=/; HttpOnly; Secure; SameSite=Strict'
-			}
+			status: 200
 		});
 	});
 
