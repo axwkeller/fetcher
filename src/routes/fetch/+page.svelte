@@ -1,4 +1,7 @@
 <script lang="ts">
+	import * as Card from '$lib/components/ui/card';
+	import * as Avatar from '$lib/components/ui/avatar';
+
 	import type { Dog, DogSearchResult } from '$lib/models/Dog';
 	import Api from '$lib/utils/Api';
 	import { onMount } from 'svelte';
@@ -46,15 +49,26 @@
 	}
 </script>
 
-<h1>Fetch a Pet!</h1>
+<h1 class="mb-4 text-2xl font-bold">Fetch a Pet!</h1>
 {#if loadingDogs || loadingSearch}
-	<h1>Loading</h1>
+	<h1 class="text-xl">Loading</h1>
 {:else if dogs.length > 0}
-	<ul>
+	<div class="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
 		{#each dogs as dog}
-			<li>{dog.name}</li>
+			<Card.Root>
+				<Card.Content class="flex items-center p-4">
+					<Avatar.Root class="h-20 w-20">
+						<Avatar.Image src={dog.img} alt={dog.name} />
+						<Avatar.Fallback>{dog.name[0]}</Avatar.Fallback>
+					</Avatar.Root>
+					<div class="ml-4">
+						<Card.Title>{dog.name}</Card.Title>
+						<Card.Description>{dog.breed}</Card.Description>
+					</div>
+				</Card.Content>
+			</Card.Root>
 		{/each}
-	</ul>
+	</div>
 {:else}
-	<p>No dogs found.</p>
+	<p class="text-lg">No dogs found.</p>
 {/if}
