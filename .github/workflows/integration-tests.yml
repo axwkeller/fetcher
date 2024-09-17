@@ -25,6 +25,6 @@ jobs:
         run: pnpm install
 
       - name: Run your tests
-        run: pnpm exec playwright test
+        run: pnpm run test:integration
         env:
           HOME: /root

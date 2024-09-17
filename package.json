@@ -11,9 +11,9 @@
 		"lint": "prettier --check . && eslint .",
 		"preview": "vite preview",
 		"test": "npm run test:integration && npm run test:unit",
-		"test:integration": "playwright test",
-		"test:integration:ui": "playwright test --ui",
-		"test:unit": "vitest",
+		"test:integration": "NODE_ENV=test playwright test",
+		"test:integration:ui": "NODE_ENV=test playwright test --ui",
+		"test:unit": "NODE_ENV=test vitest",
 		"sso": "aws sso login --sso-session=axwfetcher",
 		"sst-dev": "pnpm exec sst dev --stage dev"
 	},
@@ -28,6 +28,7 @@
 		"eslint": "^9.0.0",
 		"eslint-config-prettier": "^9.1.0",
 		"eslint-plugin-svelte": "^2.36.0",
+		"fishery": "^2.2.2",
 		"globals": "^15.0.0",
 		"prettier": "^3.1.1",
 		"prettier-plugin-svelte": "^3.1.2",
@@ -44,9 +45,12 @@
 	"dependencies": {
 		"bits-ui": "^0.21.13",
 		"clsx": "^2.1.1",
+		"formsnap": "^1.0.1",
 		"sst": "3.1.11",
 		"svelte-kit-sst": "2.43.5",
+		"sveltekit-superforms": "^2.18.1",
 		"tailwind-merge": "^2.5.2",
-		"tailwind-variants": "^0.2.1"
+		"tailwind-variants": "^0.2.1",
+		"zod": "^3.23.8"
 	}
 }
